@@ -27,7 +27,7 @@ def feature_engineering ():
     }
 
     EDA_data['age_group'] = EDA_data['age_group'].map(age_group_dic)
-    #print(EDA_data.head())
+    print(EDA_data.head())
     
     # 최종 파일 저장
     save_path = r'data/EDA'
