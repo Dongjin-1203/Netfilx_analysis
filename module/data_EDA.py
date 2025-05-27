@@ -31,7 +31,6 @@ def data_EDA(path):
     print(data.isna().sum())
 
     # 저장
-    import os
 
     save_path = r'data/EDA'
     os.makedirs(save_path, exist_ok=True)
