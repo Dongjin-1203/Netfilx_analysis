@@ -21,4 +21,21 @@ def visualization():
     plt.suptitle('Movie & TV Show distribution', fontfamily='serif', fontsize=15, fontweight='bold')
     plt.title('We see more movies than TV Show on Netfilx', fontfamily='serif', fontsize=12)
     plt.show()
+
+    # 막대그래프 작성
+    genre = df['listed_in'].str.split(',', expand=True).stack().value_counts()
+    #print(genre)    # 장르현황
+    
+    plt.figure(figsize=(12, 6))
+
+    sns.barplot(x=genre.values, y=genre.index, hue=genre.index, palette='RdGy')
+    plt.title('Distribution of Genres for Movie and TV Show on Netfilx', fontsize=16)
+    plt.xlabel('Count', fontsize=14)
+    plt.ylabel('Genre', fontsize=14)
+    # y축 항목 폰트 조절
+    plt.tick_params(axis='y', labelsize=6)
+    plt.tight_layout()
+    
+    plt.grid(axis='x')
+    plt.show()
     return print("Data analysis is Done.")
