@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 
 def data_EDA(path):
     # 데이터 불러오기
@@ -28,4 +29,12 @@ def data_EDA(path):
     # 제거
     data.dropna(axis=0, inplace=True)
     print(data.isna().sum())
-    return print("finish EDA")
+
+    # 저장
+    import os
+
+    save_path = r'data/EDA'
+    os.makedirs(save_path, exist_ok=True)
+
+    data.to_csv(os.path.join(save_path, 'data_EDA.csv'), index=False, encoding='utf-8-sig')
+    return print("finished EDA. and start the feature_engineering")
